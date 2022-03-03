@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Cards() {
@@ -8,7 +8,7 @@ function Cards() {
     error: false
   });
 
-  let innerdata = 'checking';
+  let innerdata = null;
 
   useEffect(() => {
     axios
