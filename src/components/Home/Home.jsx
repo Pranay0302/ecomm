@@ -9,9 +9,9 @@ function Home() {
     <div>
       <Header />
       <Cards />
-      <footer className={classes.footer}>
+      {/* <footer className={classes.footer}>
         <Footer />
-      </footer>
+      </footer> */}
     </div>
   );
 }

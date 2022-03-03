@@ -1,0 +1,10 @@
+.cards_container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+}
+
+.cards_container>div {
+    padding: 1rem;
+}

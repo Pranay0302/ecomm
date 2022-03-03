@@ -1,15 +1,11 @@
 .f_container {
     text-align: center;
-    position: static;
+    position: absolute;
     font-size: 1rem;
 }
 
 .f_container p {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-top: 3rem;
-    font-size: 1rem;
     font-weight: 500;
     color: #fff;
+    padding: 2rem 0 1rem 0;
 }
