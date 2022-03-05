@@ -4,10 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import classes from './ICards.module.css';
+import classes from '../ICards.module.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addToCart } from '../redux/slices/slices.actions';
+import { addToCart } from '../../redux/slices/slices.actions';
 
 // have to style and make it responsive
 
@@ -42,6 +42,9 @@ function ICards(props) {
           <Typography variant="body2" color="text.secondary">
             rating: {props.item.rating}
           </Typography>
+          <Typography variant="body2" color="text.secondary">
+            quantity: {props.item.qty}
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.buttons_container}>
@@ -54,7 +57,7 @@ function ICards(props) {
         </Button>
         <Link to={`/cart/id`}>
           <Button size="small" color="primary">
-            view item
+            remove from cart
           </Button>
         </Link>
       </CardActions>

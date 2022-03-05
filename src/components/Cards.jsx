@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ICards from './ICards';
 import classes from './ICards.module.css';
+import { connect } from 'react-redux';
+
+function mapState(state) {
+  return {
+    pizzas: state.shop.pizzas
+  };
+}
 
 function Cards() {
   const url = 'https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68';
@@ -53,4 +60,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default connect(mapState)(Cards);

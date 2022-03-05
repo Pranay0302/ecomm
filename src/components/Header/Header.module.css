@@ -1,3 +1,7 @@
 .h_container {
     padding: 0.875rem;
 }
+
+a {
+    color: inherit;
+}

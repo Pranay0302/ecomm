@@ -3,8 +3,28 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 10px;
+    padding-bottom: 3rem;
+}
+
+.cart_container {
+    margin: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.buttons_container {
+    display: flex;
+    justify-content: center;
 }
 
 .cards_container>div {
     padding: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .cards_container {
+        grid-gap: 15px;
+    }
 }

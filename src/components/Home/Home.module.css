@@ -1,7 +1,10 @@
-footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100px
+.footer_container {
+    width: 100%;
+    background: #252a47;
+    color: white;
+    text-align: center;
+}
+
+.footer_container p {
+    padding: 2rem;
 }

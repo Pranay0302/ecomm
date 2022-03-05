@@ -9,8 +9,25 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
 
-function Header() {
+function ValUpd(state) {
+  return {
+    cart: state.shop.cart
+  };
+}
+
+function Header({ cart }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let x = 0;
+    cart.map((i) => (x += i.qty));
+    setCount(x);
+  }, [cart, count]);
+
   return (
     <div className={classes.h_container}>
       {/* <h3>STORE LISTING ASSIGNMENT</h3>
@@ -28,10 +45,14 @@ function Header() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
-              <LocalPizzaIcon />
+              <Link to="/">
+                <LocalPizzaIcon />
+              </Link>
             </Typography>
             <Button color="inherit">
-              <ShoppingCartIcon />
+              <Link to="/cart">
+                {count} <ShoppingCartIcon />
+              </Link>
             </Button>
           </Toolbar>
         </AppBar>
@@ -40,4 +61,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default connect(ValUpd)(Header);
