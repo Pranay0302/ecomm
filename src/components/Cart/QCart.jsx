@@ -5,9 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import classes from '../ICards.module.css';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addToCart } from '../../redux/slices/slices.actions';
+import { addToCart, removeFromCart } from '../../redux/slices/slices.actions';
 
 // have to style and make it responsive
 
@@ -16,12 +15,15 @@ function mapDispatch(dispatch) {
   return {
     addToCart: (id) => {
       dispatch(addToCart(id));
+    },
+    removeFromCart: (id) => {
+      dispatch(removeFromCart(id));
     }
   };
 }
 
 function ICards(props) {
-  const { addToCart } = props;
+  const { addToCart, removeFromCart } = props;
 
   return (
     <Card sx={{ maxWidth: 300 }}>
@@ -55,11 +57,13 @@ function ICards(props) {
         >
           add to cart
         </Button>
-        <Link to={`/cart/id`}>
-          <Button size="small" color="primary">
-            remove from cart
-          </Button>
-        </Link>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => removeFromCart(props.item.id)}
+        >
+          remove from cart
+        </Button>
       </CardActions>
     </Card>
   );

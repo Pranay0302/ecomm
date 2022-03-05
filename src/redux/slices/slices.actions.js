@@ -25,6 +25,7 @@ export function removeFromCart(itemID) {
     };
 }
 
+// still have to add this functionality
 export function adjustQty(itemID, value) {
     return {
         type: actionTypes.QTY,
@@ -32,12 +33,5 @@ export function adjustQty(itemID, value) {
             id: itemID,
             qty: value
         }
-    };
-}
-
-export function loadCurrItem(item) {
-    return {
-        type: actionTypes.LOAD_CURRENT_ITEM,
-        payload: item
     };
 }

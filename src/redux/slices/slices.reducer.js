@@ -475,9 +475,19 @@ const sliceReducer = (state = initial_state, action) => {
                     [...state.cart, {...found, qty: 1 }]
             };
         case actionTypes.REMOVE_FROM_CART:
+            // const x = state.cart.filter((i) => i.id !== action.payload.id);
+            // console.log(x);
+            const QtyZero = state.cart.map((item) => (item.qty === 1 ? false : true));
+
             return {
                 ...state,
-                cart: state.cart.filter((i) => i.id !== action.payload.id)
+                cart: QtyZero[0] ?
+                    state.cart.map((item) =>
+                        item.id === action.payload.id ?
+                        {...item, qty: item.qty - 1 } :
+                        {...item }
+                    ) :
+                    state.cart.filter((i) => i.id !== action.payload.id)
             };
         case actionTypes.QTY:
             return {
@@ -485,11 +495,6 @@ const sliceReducer = (state = initial_state, action) => {
                 cart: state.cart.map((i) =>
                     i.id === action.payload.id ? {...i, qty: action.payload.qty } : i
                 )
-            };
-        case actionTypes.LOAD_CURRENT_ITEM:
-            return {
-                ...state,
-                currItem: action.payload
             };
 
         default:

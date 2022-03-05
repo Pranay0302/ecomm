@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import { connect } from 'react-redux';
 import classes from '../ICards.module.css';
 import QCart from './QCart';
+import Checkout from './Checkout';
 
 function ValState(state) {
   return {
@@ -27,6 +28,7 @@ function Cart({ cart }) {
             {cart.map((item, key) => (
               <QCart item={item} key={key} />
             ))}
+            <Checkout />
           </div>
         )}
       </div>

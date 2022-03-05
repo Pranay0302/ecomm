@@ -1,5 +1,4 @@
 .cards_container {
-    flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 10px;
@@ -23,8 +22,6 @@ a {
     padding: 1rem;
 }
 
-@media screen and (max-width: 600px) {
-    .cards_container {
-        grid-gap: 15px;
-    }
+.checkout_container {
+    padding: 2rem;
 }
